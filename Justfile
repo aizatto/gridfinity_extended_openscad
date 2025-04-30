@@ -11,7 +11,7 @@ install:
     fi
 
 example: && _success
-    {{ openscad }} -o "examples/{{ dimensions }} example.{{format}}" \
+    {{ openscad }} -o "examples/{{ dimensions }} example.{{ format }}" \
       gridfinity_extended_openscad/gridfinity_basic_cup.scad \
       -D 'render_choice="cup"' \
       -D 'sliding_lid_enabled=false' \
@@ -25,7 +25,7 @@ example: && _success
       --enable=textmetrics
 
 tall: && _success
-    {{ openscad }} -o "tall/{{ dimensions }} tall.{{format}}" \
+    {{ openscad }} -o "tall/{{ dimensions }} tall.{{ format }}" \
       gridfinity_extended_openscad/gridfinity_basic_cup.scad \
       -D 'render_choice="cup"' \
       -D 'sliding_lid_enabled=false' \
@@ -40,10 +40,16 @@ tall: && _success
       -D 'wall_thickness=1.2' \
       -D 'floor_thickness=1.2' \
       -D 'label_style="disabled"' \
-      -D 'fingerslide="rounded"' \
-      -D 'fingerslide_walls=[1,1,1,1]' \
+      # -D 'fingerslide="rounded"' \
+      # -D 'fingerslide_walls=[1,1,1,1]' \
       -D 'text_1=true' \
       --enable=textmetrics
+
+anylid:
+    {{ openscad }} -o "anylid/{{ dimensions }} anylid.{{ format }}" \
+      anylid.scad \
+      -D "Width_Units={{ width }}" \
+      -D "Length_Units={{ depth }}"
 
 @_success:
     say "open scad finished {{ dimensions }}"

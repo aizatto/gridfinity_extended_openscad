@@ -47,3 +47,17 @@ just width=3 depth=5 height=17 example
 ```
 
 Now create your own `just` commands! I have a `tall` command you can also see as an example.
+
+You can also change the format
+
+```sh
+just format=3mf example
+```
+
+### anylid
+
+`anylid` is  from [rngcntr on Maker World](https://makerworld.com/en/models/1059434-anylid-click-lock-stackable-lid-for-gridfinity#profileId-1047493)
+
+```sh
+just width=3 depth=3 anylid
+```
